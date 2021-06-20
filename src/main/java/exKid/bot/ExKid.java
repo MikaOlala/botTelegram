@@ -3,9 +3,7 @@ package exKid.bot;
 import org.telegram.telegrambots.bots.DefaultBotOptions;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 
-import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
-import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
@@ -26,18 +24,6 @@ public class ExKid extends TelegramLongPollingBot {
 
     public void onUpdateReceived(Update update) {
         receiveQueue.add(update);
-        if(update.getMessage()!=null && update.getMessage().hasText()) {
-            Long chatId = update.getMessage().getChatId();
-            String input = update.getMessage().getText();
-            try {
-                if(input.startsWith("/start"))
-                    execute(new SendMessage(chatId, "Привет. Я бот, который ничего пока не может..."));
-                else
-                    execute(new SendMessage(chatId, "heya"));
-            } catch (TelegramApiException e) {
-                e.printStackTrace();
-            }
-        }
     }
 
 }

@@ -1,7 +1,5 @@
 package exKid.command;
 
-import jdk.internal.net.http.common.Pair;
-
 public class Parser {
     private Command getCommandFromText(String text) {
         Command command = Command.NONE;
