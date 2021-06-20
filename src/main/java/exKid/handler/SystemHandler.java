@@ -7,6 +7,8 @@ import exKid.parsePage.DayRate;
 import exKid.parsePage.Rate;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
+import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardMarkup;
+import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardRow;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -45,8 +47,11 @@ public class SystemHandler extends AbstractHandler {
         sendMessage.enableMarkdown(true);
 
         StringBuilder text = new StringBuilder();
-        text.append("Привет. Я ExKid! \n");
-        text.append("Пока что я мало, что умею... Но вы можете поиграть с моими полуготовыми командами \uD83D\uDE1D");
+        text.append("Привет. Я ExKid! \n")
+                .append("Я бот, который показывает курс 3х валют за последние 10 дней. \n")
+                .append("Вы можете посмотреть все мои команды, написав '/'. \n")
+                .append("Либо вы можете открыть моё меню...");
+
         sendMessage.setText(text.toString());
         return sendMessage;
     }
@@ -97,4 +102,6 @@ public class SystemHandler extends AbstractHandler {
         sendMessage.setText(text.toString());
         return sendMessage;
     }
+
+
 }

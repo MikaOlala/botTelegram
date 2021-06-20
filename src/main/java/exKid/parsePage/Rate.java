@@ -26,10 +26,6 @@ public class Rate {
     private final Pattern date = Pattern.compile("\\d{2}\\.\\d{2}");
 //    private final Pattern rate = Pattern.compile("\\d\\,\\d{2}");
 
-    public Rate(String currentTask) {
-        this.currentTask = currentTask;
-    }
-
     private Document getPage() throws IOException {
         String url = "";
         if(currentTask.equals("usd"))
@@ -68,7 +64,7 @@ public class Rate {
         throw new Exception("Can't find date");
     }
 
-    public String getRateFromText(String text) throws Exception {
+    public String getRateFromText(String text) {
         int indexStart = text.indexOf(" ", text.indexOf(" ")+2);
         int indexEnd = text.indexOf(" ", text.indexOf(" ")+3);
         String result = text.substring(indexStart, indexEnd);
