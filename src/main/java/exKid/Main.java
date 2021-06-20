@@ -10,8 +10,9 @@ import org.telegram.telegrambots.meta.TelegramBotsApi;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 
 public class Main {
-    public static void main(String[] args) {
+    private static final String BOT_ADMIN = "768468767";
 
+    public static void main(String[] args) {
         ApiContextInitializer.init();
 
         DefaultBotOptions botOptions = ApiContext.getInstance(DefaultBotOptions.class);
@@ -35,11 +36,14 @@ public class Main {
         Thread receiver = new Thread(messageReciever);
         receiver.setDaemon(true);
         receiver.setName("MsgReceiver");
+
+        receiver.setPriority(3);
         receiver.start();
 
         Thread sender = new Thread(messageSender);
         sender.setDaemon(true);
         sender.setName("MsgSender");
+        sender.setPriority(1);
         sender.start();
 
         sendStartReport(exKid);
@@ -47,7 +51,8 @@ public class Main {
 
     private static void sendStartReport(ExKid exKid) {
         SendMessage sendMessage = new SendMessage();
-        sendMessage.setText("Запустился");
+        sendMessage.setText("Я запустился");
+        sendMessage.setChatId(BOT_ADMIN);
         exKid.sendQueue.add(sendMessage);
     }
 }

@@ -5,10 +5,9 @@ import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.api.methods.send.SendSticker;
 import org.telegram.telegrambots.meta.api.objects.Message;
 
-import java.awt.*;
 
 public class MessageSender implements Runnable{
-    private ExKid exKid;
+    private final ExKid exKid;
     private final int SENDER_SLEEP_TIME = 1000;
 
     public MessageSender (ExKid exkid) {
