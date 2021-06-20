@@ -1,2 +1,5 @@
 # botTelegram
-Telegram bot on Java with Exchange Rates
+<h2>Telegram bot on Java with Exchange Rates</h2>
+<p>This bot was created to show 3 exchange rates: EUR, USD, RUB</p>
+
+![](img/4Bvbc2xC_X4.jpg)
