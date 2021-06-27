@@ -15,8 +15,8 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 
 
 public class ExKid extends TelegramLongPollingBot {
-    private static final String TOKEN = "1838076023:AAG4-0N9mLTa0C10F5B1FiMZOvlfI3jjKgo";
-    private static final String USERNAME = "exkid_bot";
+    private static final String TOKEN = "BOT_TOKEN";
+    private static final String USERNAME = "BOT_NAME";
 
     public ExKid(DefaultBotOptions options) {
         super(options);
